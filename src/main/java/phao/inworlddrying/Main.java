@@ -1,5 +1,8 @@
 package phao.inworlddrying;
 
+// Crafttweaker Reference:
+// https://darkhax.net/2018/10/tutorial-crafttweaker
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
