@@ -5,6 +5,8 @@ import crafttweaker.IAction;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -24,17 +26,22 @@ import stanhebben.zenscript.annotations.ZenMethod;
 public class Drying {
 
 	@ZenMethod
-    public static void addRecipe(String id, IItemStack output, IIngredient[] inputs) {
+    public static void addRecipe(String id, IItemStack output, IItemStack  input1, IItemStack  input2) {
         CraftTweakerAPI.apply(new IAction() {
             @Override
             public void apply() {
-                final DryingRecipes recipe = new DryingRecipes();
-                RecipeHelper.addRecipe(recipe);
+
+            	
+            	
+            	
+            DryingRecipes.getInstance().addDryingRecipe((ItemStack)input1.getInternal(), (ItemStack)input2.getInternal(), (ItemStack)output.getInternal());
+
+                
             }
 
             @Override
             public String describe() {
-                return "Adding Infusion Crafting recipe for " + output.toCommandString();
+                return "Adding Infusion Crafting recipe for " + output.toString();
             }
         });
     }
